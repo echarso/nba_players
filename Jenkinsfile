@@ -3,6 +3,8 @@ node()
     print "DEBUG: parameter foo = ${name}"
     print "DEBUG: parameter version = ${version}"
     print "DEBUG: parameter location = ${source}"
+    print "DEBUG: parameter GOOGLE_SERVICE_ACCOUNT_KEY ${GOOGLE_SERVICE_ACCOUNT_KEY}"
+    print "DEBUG: parameter GOOGLE_PROJECT_ID ${GOOGLE_PROJECT_ID}"
 
 
 }
