@@ -32,10 +32,13 @@ pipeline {
 					#!/bin/bash 
 					echo "deploy stage";
 					curl -o /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-225.0.0-linux-x86_64.tar.gz;
+					echo "-----------------------------------------";
 					tar -xvf /tmp/google-cloud-sdk.tar.gz -C /tmp/;
+					echo "-----------------------------------------";
 					/tmp/google-cloud-sdk/install.sh -q;
-                    source /tmp/google-cloud-sdk/path.bash.inc;
-					
+					echo "-----------------------------------------";
+                   			source /tmp/google-cloud-sdk/path.bash.inc;
+					echo "-----------------------------------------";
 					
 					 gcloud config set project ${GOOGLE_PROJECT_ID};
 					 gcloud auth activate-service-account --key-file ${GOOGLE_SERVICE_ACCOUNT_KEY};
