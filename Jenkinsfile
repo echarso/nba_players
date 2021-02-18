@@ -8,10 +8,26 @@ node()
 
 
 }
-stage('Deploy'){
-			steps{
-              
-				//Deploy to GCP
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                print "DEBUG: parameter build "
+            }
+        }
+        stage('Test') { 
+            steps {
+                // 
+		  print "DEBUG: parameter test "
+
+            }
+        }
+        stage('Deploy') { 
+            steps {
+		    print "DEBUG: parameter deploy "
+
+                	//Deploy to GCP
 				sh """
 					#!/bin/bash 
 					echo "deploy stage";
@@ -29,4 +45,7 @@ stage('Deploy'){
                     echo "Deployed to GCP"
 				"""
 			}
-		}
+            }
+        }
+    }
+}
