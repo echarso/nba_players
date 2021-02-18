@@ -26,10 +26,13 @@ pipeline {
         stage('Deploy') { 
             steps {
 		    print "DEBUG: parameter deploy "
-
+						
                 	//Deploy to GCP
 				sh """
-					#!/bin/bash 
+					#!/bin/bash
+					pip install python 
+					echo "-----------------------------------------";
+
 					echo "deploy stage";
 					curl -o /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-225.0.0-linux-x86_64.tar.gz;
 					echo "-----------------------------------------";
