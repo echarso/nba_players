@@ -14,12 +14,18 @@ pipeline {
         stage('Build') { 
             steps {
                 print "DEBUG: parameter build "
+		script {
+			  sh """
+			  pip install -r requirements.txt
+			  """
+			}
             }
         }
         stage('Test') { 
             steps {
                 // 
 		  print "DEBUG: parameter test "
+		   
 
             }
         }
