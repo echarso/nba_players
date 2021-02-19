@@ -16,7 +16,7 @@ pipeline {
                 print "DEBUG: parameter build "
 		script {
 			  sh """
-			  pip install -r requirements.txt
+			  python --version
 			  """
 			}
             }
