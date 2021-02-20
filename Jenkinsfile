@@ -47,6 +47,8 @@ pipeline {
 					/tmp/google-cloud-sdk/install.sh -q;
 					echo "-----------------------------------------";
                    			source /tmp/google-cloud-sdk/path.bash.inc;
+					source /tmp/google-cloud-sdk/completion.bash.inc;
+					source ~/.bashrc;
 					echo "-----------------------------------------";
 					
 					 gcloud config set project ${GOOGLE_PROJECT_ID};
