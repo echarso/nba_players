@@ -32,8 +32,8 @@ pipeline {
         stage('Deploy') { 
             steps {
 		    print "DEBUG: parameter deploy "
-						
-                	//Deploy to GCP
+		     withCredentials([file(credentialsId: 'teanGCP', variable: 'FILE')]) {
+      
 				sh """
 					#!/bin/bash
 					pip install python 
@@ -52,12 +52,13 @@ pipeline {
 					echo "-----------------------------------------";
 					
 					 gcloud config set project ${GOOGLE_PROJECT_ID};
-					 gcloud auth activate-service-account --key-file ${GOOGLE_SERVICE_ACCOUNT_KEY};
+					 gcloud auth activate-service-account --key-file ${FILE};
 					 
 					 gcloud config list;
 					 gcloud app deploy --version=v01;
-                    echo "Deployed to GCP"
+                    			 echo "Deployed to GCP"
 				"""
+				}
 			}
             }
         }
